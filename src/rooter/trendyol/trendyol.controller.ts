@@ -5,6 +5,10 @@ import { AuthGuard } from '@nestjs/passport';
 @Controller()
 export class TrendyolController {
   constructor(private readonly trendyolService: TrendyolService) {}
+  @Get('trendyol/service_test')
+  serviceTest() {
+    return this.trendyolService.serviceTest();
+  }
 
   @UseGuards(AuthGuard('local'))
   @Get('trendyol/test')

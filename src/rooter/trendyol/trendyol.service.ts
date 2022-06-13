@@ -12,4 +12,7 @@ export class TrendyolService {
   testAccount() {
     return this.trendyolClient.send('testAccount', {});
   }
+  serviceTest() {
+    return this.trendyolClient.send('serviceTest', {});
+  }
 }
