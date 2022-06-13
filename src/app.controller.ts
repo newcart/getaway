@@ -7,7 +7,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return "Hello2";
+    return "Newcart Server is runing";
   }
 
 }
