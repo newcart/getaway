@@ -25,3 +25,24 @@ async function bootstrap() {
   console.log(`Trendyol Service is running on: ${await app.getUrl()}`);
 }
 ```
+### Haberleşme
+öncelikle microservisin çağrılacağı service ve controller içinde bir Incjet oluşturulur.
+```
+  constructor(
+      @Inject('TRENDYOL') private readonly trendyolClient: ClientProxy,
+  ) {}
+
+```
+Getaway'da Metod içinde oluşturulan inkjet kullanılarak çağrı yapılır. Çağrı yapılırken microserviste eşleştirilecek bir pattern ve gönderilecek datalar belirlenir
+```
+  testAccount() {
+    return this.trendyolClient.send('testAccount', {});
+  }
+```
+Microservis'te gelen isteğin karşılanması
+```
+  @MessagePattern('testAccount')
+  testAccount(body) {
+    return this.appService.testAccount(body);
+  }
+```
