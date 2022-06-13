@@ -6,7 +6,7 @@ import { TrendyolService } from './trendyol.service';
 @Module({
   imports: [
     ClientsModule.register([
-      { name: 'TRENDYOL', transport: Transport.TCP, options: { host: "localhost", port: 30101 } },
+      { name: 'TRENDYOL', transport: Transport.TCP, options: { port: 30101 } },
     ]),
   ],
   controllers: [TrendyolController],
