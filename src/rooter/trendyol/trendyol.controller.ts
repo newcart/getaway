@@ -1,5 +1,6 @@
-import {  Controller, Get } from '@nestjs/common';
+import {  Controller, Get, Post, Req } from '@nestjs/common';
 import { TrendyolService } from './trendyol.service';
+import { Request  } from "express";
 
 @Controller()
 export class TrendyolController {
@@ -9,8 +10,8 @@ export class TrendyolController {
   serviceTest() {
     return this.trendyolService.serviceTest();
   }
-  @Get('trendyol/test')
-  testAccount() {
-    return this.trendyolService.testAccount();
+  @Post('trendyol/test')
+  testAccount( @Req() request: Request) {
+    return this.trendyolService.testAccount(request.body["data"]);
   }
 }
