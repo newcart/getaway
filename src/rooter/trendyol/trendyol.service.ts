@@ -7,7 +7,6 @@ export class TrendyolService {
 
   constructor(
       @Inject('TRENDYOL') private readonly trendyolClient: ClientProxy,
-      @Inject('REDIS_SERVICE') private readonly redisClient: ClientProxy,
   ) {}
 
   testAccount() {
@@ -15,8 +14,6 @@ export class TrendyolService {
   }
   serviceTest() {
     return this.trendyolClient.send('serviceTest', {});
-  }  
-  redisTest() {
-    return this.redisClient.send('serviceTest', {});
   }
+
 }
