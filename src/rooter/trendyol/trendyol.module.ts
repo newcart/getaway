@@ -7,6 +7,7 @@ import { TrendyolService } from './trendyol.service';
   imports: [
     ClientsModule.register([
       { name: 'TRENDYOL', transport: Transport.TCP, options: { host:"localhost", port: 30101 } },
+      { name: 'REDIS_SERVICE', transport: Transport.REDIS, options: { url: 'redis://localhost:30101' } },
     ]),
   ],
   controllers: [TrendyolController],
