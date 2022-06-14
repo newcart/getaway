@@ -1,6 +1,5 @@
-import { Body, Controller, Get,  UseGuards } from '@nestjs/common';
+import {  Controller, Get } from '@nestjs/common';
 import { TrendyolService } from './trendyol.service';
-import { AuthGuard } from '@nestjs/passport';
 
 @Controller()
 export class TrendyolController {
@@ -10,7 +9,6 @@ export class TrendyolController {
   serviceTest() {
     return this.trendyolService.serviceTest();
   }
-  @UseGuards(AuthGuard('local'))
   @Get('trendyol/test')
   testAccount() {
     return this.trendyolService.testAccount();

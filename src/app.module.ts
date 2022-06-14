@@ -1,13 +1,20 @@
-import { Module } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
 import { TrendyolModule } from './rooter/trendyol/trendyol.module';
+import { authMiddleware } from "./auth/auth.middleware";
+import { AuthService } from "./auth/auth.basic.service";
 
 @Module({
-  imports: [UsersModule, AuthModule, TrendyolModule],
+  imports: [ TrendyolModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AuthService, AppService],
 })
-export class AppModule {}
+
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+        .apply(authMiddleware)
+        .forRoutes('*');
+  }
+}
