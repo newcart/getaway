@@ -10,7 +10,7 @@ export class TrendyolController {
     return this.trendyolService.serviceTest();
   }
   @Get('trendyol/redis')
-  serviceTest() {
+  redisTest() {
     return this.trendyolService.redisTest();
   }
   @UseGuards(AuthGuard('local'))
