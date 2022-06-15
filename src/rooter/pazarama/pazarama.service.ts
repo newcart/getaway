@@ -10,7 +10,6 @@ export class PazaramaService {
     return this.serviceClient.send('serviceTest', {});
   }
   testAccount(body: Body) {
-    console.log(body);
     return this.serviceClient.send('testAccount', body);
   }
   postBrand(body: Body) {
