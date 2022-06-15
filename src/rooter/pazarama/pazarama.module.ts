@@ -6,7 +6,7 @@ import { PazaramaService } from './pazarama.service';
 @Module({
   imports: [
     ClientsModule.register([
-      { name: 'PAZARAMA', transport: Transport.TCP, options: { host: 'pazarama', port: 3102 } },
+      { name: 'PAZARAMA', transport: Transport.TCP, options: { host: 'pazarama', port: 30102 } },
     ]),
   ],
   controllers: [PazaramaController],
