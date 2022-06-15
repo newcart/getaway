@@ -12,8 +12,10 @@ export class authMiddleware implements NestMiddleware {
         const [api_key, secret_key] = Buffer.from(b64auth, 'base64').toString().split(':')
         const user = this.validateUser(api_key, secret_key);
         if(user){
-            request["data"]['body'] = JSON.parse( JSON.stringify( request.body).toString() );
-            request["data"]["auth"] = user
+            request["data"] = {
+                'body' : JSON.parse( JSON.stringify( request.body).toString() ),
+                'auth' : user
+            };
             return next();
         }
         throw new UnauthorizedException()
