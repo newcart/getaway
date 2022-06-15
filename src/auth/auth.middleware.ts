@@ -1,18 +1,20 @@
-import { Injectable, NestMiddleware, UnauthorizedException } from "@nestjs/common";
+import { Injectable, NestMiddleware, UnauthorizedException, HttpException, HttpStatus } from "@nestjs/common";
 import { NextFunction, Request, Response } from "express";
 import {AuthService} from "./auth.basic.service";
 
 @Injectable()
 export class authMiddleware implements NestMiddleware {
     constructor(private readonly authService: AuthService) {}
-
     use(request: Request, res: Response, next: NextFunction) {
+
+        request["data"] = [];
         const b64auth = (request.headers.authorization || '').split(' ')[1] || ''
         const [api_key, secret_key] = Buffer.from(b64auth, 'base64').toString().split(':')
         const user = this.validateUser(api_key, secret_key);
         if(user){
-            request.body["data"] = JSON.parse( JSON.stringify( request.body).toString() );
-            return next()
+            request["data"]['body'] = JSON.parse( JSON.stringify( request.body).toString() );
+            request["data"]["auth"] = user
+            return next();
         }
         throw new UnauthorizedException()
     }
