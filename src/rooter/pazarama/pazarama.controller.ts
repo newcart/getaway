@@ -5,7 +5,6 @@ import { Request  } from "express";
 @Controller()
 export class PazaramaController {
   constructor(private readonly PazaramaService: PazaramaService) {}
-
   @Get('pazarama/service_test')
   serviceTest() {
     return this.PazaramaService.serviceTest();
@@ -38,5 +37,36 @@ export class PazaramaController {
   postCategorySpecs( @Req() request: Request) {
     return this.PazaramaService.postCategorySpecs(request.body["data"]);
   }
-
+  @Post('pazarama/product')
+  postProduct( @Req() request: Request) {
+    return this.PazaramaService.postProduct(request.body["data"]);
+  }
+  @Post('pazarama/products')
+  postProducts( @Req() request: Request) {
+    return this.PazaramaService.postProducts(request.body["data"]);
+  }
+  @Post('pazarama/products-delete')
+  postProductsDelete( @Req() request: Request) {
+    return this.PazaramaService.postProductsDelete(request.body["data"]);
+  }
+  @Post('pazarama/products-save')
+  postProductsSave( @Req() request: Request) {
+    return this.PazaramaService.postProductsSave(request.body["data"]);
+  }
+  @Post('pazarama/products-update')
+  postProducstUpdate( @Req() request: Request) {
+    return this.PazaramaService.postProducstUpdate(request.body["data"]);
+  }
+  @Post('pazarama/products-stok-price')
+  postProductsStokPrice( @Req() request: Request) {
+    return this.PazaramaService.postProductsStokPrice(request.body["data"]);
+  }
+  @Post('pazarama/orders')
+  postOrders( @Req() request: Request) {
+    return this.PazaramaService.postOrders(request.body["data"]);
+  }
+  @Post('pazarama/order')
+  postOrder( @Req() request: Request) {
+    return this.PazaramaService.postOrder(request.body["data"]);
+  }
 }
