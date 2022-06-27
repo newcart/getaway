@@ -13,7 +13,7 @@ export class authMiddleware implements NestMiddleware {
         const user = this.validateUser(api_key, secret_key);
         if(user){
             request["data"] = {
-                'body' : JSON.parse( JSON.stringify( request.body).toString() ),
+                'body' : JSON.parse( JSON.stringify( request.body) ),
                 'auth' : user
             };
             return next();

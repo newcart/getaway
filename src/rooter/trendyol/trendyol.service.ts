@@ -13,8 +13,6 @@ export class TrendyolService {
     return this.serviceClient.send('testAccount', body);
   }
   postBrand(body) {
-    console.log("dede");
-    console.log(body);
     return this.serviceClient.send('postBrand', body);
   }
   postBrands(body) {
