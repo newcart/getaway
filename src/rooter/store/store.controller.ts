@@ -2,20 +2,19 @@ import { Controller, Get, Post, Req } from '@nestjs/common';
 import { StoreService } from './store.service';
 import { Request } from "express";
 
-@Controller()
+@Controller('store')
 export class StoreController {
-  constructor(private readonly StoreService: StoreService) {}
-  @Get('store/service_test')
+  constructor(private readonly thisService: StoreService) {}
+  @Get('service_test')
   serviceTest() {
-    return this.StoreService.serviceTest();
+    return this.thisService.serviceTest();
   }
-  @Post('store/create')
+  @Post('create')
   createStore( @Req() request: Request ) {
-    return this.StoreService.create(request['data']);
+    return this.thisService.create(request['data']);
   }
-  @Post('store/remove')
+  @Post('remove')
   removeStore( @Req() request: Request ) {
-    return this.StoreService.remove(request['data']);
+    return this.thisService.remove(request['data']);
   }
-
 }

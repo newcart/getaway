@@ -1,72 +1,72 @@
-import { Controller, Get, Post, Req } from '@nestjs/common';
+import { Controller, Get, Post, Req, Request } from '@nestjs/common';
 import { PazaramaService } from './pazarama.service';
-import { Request } from "express";
+//import { Request } from "express";
 
-@Controller()
+@Controller('pazarama')
 export class PazaramaController {
-  constructor(private readonly PazaramaService: PazaramaService) {}
-  @Get('pazarama/service_test')
+  constructor(private readonly thisService: PazaramaService) {}
+  @Get('service_test')
   serviceTest() {
-    return this.PazaramaService.serviceTest();
+    return this.thisService.serviceTest();
   }
-  @Post('pazarama/test')
+  @Post('test')
   testAccount( @Req() request: Request ) {
-    return this.PazaramaService.testAccount(request['data']);
+    return this.thisService.testAccount(request['data']);
   }
-  @Post('pazarama/brand')
+  @Post('brand')
   postBrand( @Req() request: Request) {
-    return this.PazaramaService.postBrand(request['data']);
+    return this.thisService.postBrand(request['data']);
   }
-  @Post('pazarama/brands')
+  @Post('brands')
   postBrands( @Req() request: Request) {
-    return this.PazaramaService.postBrands(request['data']);
+    return this.thisService.postBrands(request['data']);
   }
-  @Post('pazarama/maincategories')
+  @Post('maincategories')
   postMaincategories( @Req() request: Request) {
-    return this.PazaramaService.postMaincategories(request['data']);
+    return this.thisService.postMaincategories(request['data']);
   }
-  @Post('pazarama/categories')
+  @Post('categories')
   postCategories( @Req() request: Request) {
-    return this.PazaramaService.postCategories(request['data']);
+    return this.thisService.postCategories(request['data']);
   }
-  @Post('pazarama/category')
+  @Post('category')
   postCategory( @Req() request: Request) {
-    return this.PazaramaService.postCategory(request['data']);
+    return this.thisService.postCategory(request['data']);
   }
-  @Post('pazarama/category_specs')
+  @Post('category_specs')
   postCategorySpecs( @Req() request: Request) {
-    return this.PazaramaService.postCategorySpecs(request['data']);
+    return this.thisService.postCategorySpecs(request['data']);
   }
-  @Post('pazarama/product')
+  @Post('product')
   postProduct( @Req() request: Request) {
-    return this.PazaramaService.postProduct(request['data']);
+    return this.thisService.postProduct(request['data']);
   }
-  @Post('pazarama/products')
+  @Post('products')
   postProducts( @Req() request: Request) {
-    return this.PazaramaService.postProducts(request['data']);
+    return this.thisService.postProducts(request['data']);
   }
-  @Post('pazarama/products-delete')
+  @Post('products-delete')
   postProductsDelete( @Req() request: Request) {
-    return this.PazaramaService.postProductsDelete(request['data']);
+    return this.thisService.postProductsDelete(request['data']);
   }
-  @Post('pazarama/products-save')
+  @Post('products-save')
   postProductsSave( @Req() request: Request) {
-    return this.PazaramaService.postProductsSave(request['data']);
+    return this.thisService.postProductsSave(request['data']);
   }
-  @Post('pazarama/products-update')
+  @Post('products-update')
   postProducstUpdate( @Req() request: Request) {
-    return this.PazaramaService.postProducstUpdate(request['data']);
+    return this.thisService.postProducstUpdate(request['data']);
   }
-  @Post('pazarama/products-stok-price')
+  @Post('products-stok-price')
   postProductsStokPrice( @Req() request: Request) {
-    return this.PazaramaService.postProductsStokPrice(request['data']);
+    return this.thisService.postProductsStokPrice(request['data']);
   }
-  @Post('pazarama/orders')
+  @Post('orders')
   postOrders( @Req() request: Request) {
-    return this.PazaramaService.postOrders(request['data']);
+    return this.thisService.postOrders(request['data']);
   }
-  @Post('pazarama/order')
+  @Post('order')
   postOrder( @Req() request: Request) {
-    return this.PazaramaService.postOrder(request['data']);
+    return this.thisService.postOrder(request['data']);
   }
 }
