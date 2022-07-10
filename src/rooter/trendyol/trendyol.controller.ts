@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Req, Request } from '@nestjs/common';
 import { TrendyolService } from './trendyol.service';
-//import { Request } from "express";
 
 @Controller('trendyol')
 export class TrendyolController {

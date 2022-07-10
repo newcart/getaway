@@ -1,6 +1,5 @@
-import { Controller, Get, Post, Req } from '@nestjs/common';
+import { Controller, Get, Post, Req, Request } from '@nestjs/common';
 import { StoreService } from './store.service';
-import { Request } from "express";
 
 @Controller('store')
 export class StoreController {

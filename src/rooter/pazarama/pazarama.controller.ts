@@ -1,6 +1,5 @@
 import { Controller, Get, Post, Req, Request } from '@nestjs/common';
 import { PazaramaService } from './pazarama.service';
-//import { Request } from "express";
 
 @Controller('pazarama')
 export class PazaramaController {

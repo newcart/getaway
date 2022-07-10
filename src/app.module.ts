@@ -16,7 +16,7 @@ import { StoreModule } from './rooter/store/store.module';
 
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(authMiddleware).forRoutes('*');
-    consumer.apply(cacheMiddleware).forRoutes('*');
+    consumer.apply(authMiddleware).forRoutes('*')
+    consumer.apply(cacheMiddleware).forRoutes('*')
   }
 }

@@ -1,15 +1,14 @@
-import { Injectable, NestMiddleware } from "@nestjs/common";
-import { NextFunction, Request, Response } from "express";
+import { Injectable, Request, NestMiddleware } from "@nestjs/common";
+import { NextFunction, Response } from "express";
 
 @Injectable()
 export class cacheMiddleware implements NestMiddleware {
 
-    use(request: Request, res: Response, next: NextFunction) {
-        console.log("Cache");
+    use(request: Request, response: Response, next: NextFunction) {
         const data =  this.loadFromCache();
         if(data){
-            res.write(JSON.stringify(data))
-            res.end()
+            response.write(JSON.stringify(data))
+            response.end()
             return
         }
         return next();
