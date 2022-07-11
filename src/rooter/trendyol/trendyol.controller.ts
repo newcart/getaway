@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Req, Request } from '@nestjs/common';
 import { TrendyolService } from './trendyol.service';
 
-@Controller('trendyol')
+@Controller(':user_id/trendyol/')
 export class TrendyolController {
   constructor(private readonly thisService: TrendyolService) {}
   @Get('service_test')
