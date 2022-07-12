@@ -9,10 +9,13 @@ export class StoreService {
   serviceTest() {
     return this.serviceClient.send('serviceTest', {});
   }
-  create(body) {
-    return this.serviceClient.send('create', body);
+  serviceList(body) {
+    return this.serviceClient.send('list', body);
   }
-  remove(body) {
-    return this.serviceClient.send('remove', body);
+  serviceInfo(body) {
+    return this.serviceClient.send('info', body);
+  }
+  serviceSave(body) {
+    return this.serviceClient.send('save', body);
   }
 }
