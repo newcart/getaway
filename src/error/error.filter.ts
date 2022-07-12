@@ -1,5 +1,5 @@
 import { ExceptionFilter, Catch, HttpException, ArgumentsHost, HttpStatus } from '@nestjs/common';
-import { newCartUtil } from "newcart/util";
+import { newCartUtil } from "newcart";
 
 @Catch()
 export class ErrorFilter implements ExceptionFilter {
