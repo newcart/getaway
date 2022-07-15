@@ -20,11 +20,16 @@ export class authMiddleware implements NestMiddleware {
         const [api_key, secret_key] = Buffer.from(b64auth, 'base64').toString().split(':')
         const user = await this.validateUser(api_key, secret_key);
         if(user){
-            request["data"] = {
-                'body' : JSON.parse( JSON.stringify( request.body) ),
-                'auth' : user
-            };
-            return next();
+            console.log("Method",request.method, user);
+            if((request.method == 'DELETE' || request.method == 'PUT' ) && !user['isSupervisor']){
+                throw new UnauthorizedException()
+            } else{
+                request["data"] = {
+                    'body' : JSON.parse( JSON.stringify( request.body) ),
+                    'auth' : user
+                };
+                return next();
+            }
         }
         throw new UnauthorizedException()
     }
